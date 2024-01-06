@@ -191,7 +191,10 @@ body{
 .large-title{
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
   top: 30%;
   z-index: 5;
 }
@@ -222,7 +225,6 @@ body{
     opacity: 0;
     font-size: 0;
   }
-
 }
 
 .large-title h1 span:hover {
@@ -234,11 +236,22 @@ body{
 }
 
 /* !!Call to action text and button!! */
+
+.vertical-flexbox-positioner{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  z-index: 5;
+  color: transparent;
+  user-select: none;
+}
+
 .vertical-flexbox{
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: relative;
   top: 25rem;
   left: 50%;
   transform: translateX(-50%);
@@ -256,82 +269,35 @@ body{
   width:9.5rem;
   background-color: var(--gold);
   border: none;
+  transition: all 0.3s;
 }
 
 button{
   cursor: pointer;
 }
 
-.fancy-button-animation-text{ /*!!To reduce length, explore-button's styling is shared here!!*/
-  font-family: var(--normal_font);
-  font-weight: 1000;
+.fancy-button-animation-text{
+  font-family: var(--header_font);
+  font-weight: 700;
   font-size: 1.17em;
-  background-color: white;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: none;
-  transition: all 0.35s;
+  color: white;
   display: block;
+  transition: all 0.3s;
+}
+
+.explore-button{
+  transition: all 0.3s;
+}
+
+.order-now-button:hover,
+.explore-button:hover { /*!!To reduce length, explore-button's styling is shared here!!*/
+  background-color: var(--red);
 }
 
 .order-now-button:hover .fancy-button-animation-text,
-.explore-button:hover .fancy-button-animation-text{ /*!!To reduce length, explore-button's styling is shared here!!*/
-  background-image: linear-gradient(
-    90deg,
-    white 50%,
-    #da291c 50%
-  );
-  background-clip: text;
-  background-size: 200%  auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 0.3s linear infinite forwards, scaleUpDown 0.3s forwards;
-  animation-iteration-count: 1;
-  /*rotate: -3deg; */
-  /* !!The validator is outdated, and deems rotate: to be a non-existant property. The code below  achieves the same effect.!! */
+.explore-button:hover .fancy-button-animation-text{
+  transform: scale(1.2);
 }
-.order-now-button:not(:hover) .fancy-button-animation-text,
-.explore-button:not(:hover) .fancy-button-animation-text{
-  animation: scaleUpDown-Reverse 0.3s forwards;
-}
-
-@keyframes textclip {
-  from{
-    background-position: 0;
-  }
-
-  to {
-    background-position: -100% center;
-  }
-}
-
-@keyframes scaleUpDown {
-  0% {
-  transform: scale( 1) rotate(0deg);
-  }
-  50% {
-  transform: scale( 1.4);
-  }
-
-  100% {
-    transform: scale( 1) rotate(-3deg);
-  }
-}
-
-@keyframes scaleUpDown-Reverse {
-  0% {
-  transform: rotate(-3deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-/* .explore-button:hover .fancy-button-animation-text{
-  rotate: -2.5deg;
-} */
 
 /* !!Our food!! */
 .our-food{
@@ -418,6 +384,7 @@ button{
   6s=25%
   12s=50%
   18s=75%
+  
 animation: name duration timing-function delay iteration-count direction fill-mode; */
 
 #slideshow-img3{
@@ -594,7 +561,7 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 .accordion{
   display: grid;
   grid-template-rows: 0fr;
-  transition: 0.5s;      
+  transition: all 0.5s;      
 }
 
 .accordion p, ul{
