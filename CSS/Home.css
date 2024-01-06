@@ -238,22 +238,12 @@ body{
 
 /* !!Call to action text and button!! */
 
-.vertical-flexbox-positioner{
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 30%;
-  z-index: 5;
-  color: transparent;
-  user-select: none;
-}
-
 .vertical-flexbox{
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: 55%;
+  top: max( 24rem, 48%);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -304,7 +294,7 @@ button{
 .our-food{
   background-image: url(../Images/scratched-gray-wood-textured-background.jpg);
   background-size: contain;
-  height: 65vh;
+  height: min( 65vh, 535px);
   display: flex;
   border-top: 3px black solid; border-bottom: 3px black solid;
   display: flex;
